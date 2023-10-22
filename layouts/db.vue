@@ -75,8 +75,8 @@ const toogleSidebar = () => {
                 <div class="flex  w-full gap-3 mt-5 mx-3">
                     <img src="~/assets/img/db-user.png" alt="" class="h-10 w-10 rounded-full">
                     <div>
-                        <p class="capitalize font-semibold">Okigwe Ebube</p>
-                        <small>Ireneaus</small>
+                        <p class="capitalize font-semibold">{{account.profile.user.first_name}} {{ account.profile.user.last_name }}</p>
+                        <small>{{account.profile.user.username}}</small>
                     </div>
                 </div>
                 <div>

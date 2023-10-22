@@ -149,5 +149,9 @@ onMounted(() => { });
 </template>
 
 <style lang="scss" scoped>
-
+header{
+    .router-link-active{
+        color: rgb(232 28 255);
+    }
+}
 </style>

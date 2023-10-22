@@ -4,7 +4,7 @@
 
 <template>
    <div class="main">
-        <div class="bg-[url('~/assets/img/btc-bg.jpg')] relative bg-cover  h-screen w-screen before:w-full before:h-full before:absolute
+        <div class="bg-[url('~/assets/img/btc-bg.jpg')] relative bg-cover bg-center h-screen w-screen before:w-full before:h-full before:absolute
         before:bg-slate-900/50 before:z-0">
             <div class="absolute z-50 top-1/3 left-5 sm:top-1/2 sm:left-40 text-white text-left">
                 <small class="text-violet-300 text-base">Assured, Secure &amp; Private</small>
