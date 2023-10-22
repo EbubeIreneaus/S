@@ -140,8 +140,9 @@ const initiate = async (e) => {
     const {data: res, error: error} = await useFetch(`${url}transaction/`, {
         method: 'post', watch: false, body: invest, key: new Date().getTime().toString()
     })
+
     if(res.value){
-        if(res.value.staus == 'success'){
+        if(res.value.status == 'success'){
             e.target.innerHTML = 'Initiated'
              invest.amount = ''
         }else{
