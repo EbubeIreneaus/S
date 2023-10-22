@@ -98,7 +98,7 @@
                         $5000 - $14,999
                     </p>
                     <ul role="list" class="text-center">
-                        <li class="py-3">60% ROI</li>
+                        <li class="py-3">80% ROI</li>
                         <li class="py-3">Withdraw 48hrs</li>
                         <li class="py-3">24/7 Customer Support</li>
 
