@@ -69,14 +69,14 @@ onMounted(() => { });
         <div class="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
             <div class="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
                 <div class="sm:col-span-2">
-                    <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
+                    <NuxtLink to="/" aria-label="Go home" title="Company" class="inline-flex items-center">
                         <div class="logo flex items-center gap-2 bg-clip-text bg-gradient-to-r from-[#40c9ff] to-[#e81cff]">
                             <img src="~/assets/img/btc-logo.png" alt="" class="rounded-full w-10 h-10 ring-2" />
                             <h2 class="font-semibold italic text-xl text-transparent">
-                                <NuxtLink to="/">Spring Field</NuxtLink>
+                                Spring Field
                             </h2>
                         </div>
-                    </a>
+                    </NuxtLink>
                     <div class="mt-6 lg:max-w-sm">
                         <p class="text-sm">
                             Created in 2012, SpringField Investestment came into the investment market with the primary objective of
@@ -149,5 +149,5 @@ onMounted(() => { });
 </template>
 
 <style lang="scss" scoped>
-main {}
+
 </style>
