@@ -6,14 +6,16 @@ definePageMeta({
 const userId = inject("userId");
 const url = inject("url");
 
+const account = inject('account')
+
+
 const { data: transactions } = await useFetch(`${url}transaction/`, {
     method: "get",
-    query: { userId: userId.value },
+    query: { userId: userId },
     watch: false,
     cache: false,
 });
 
-const { data: account } = await useFetch(`${url}account/details/${userId.value}`);
 
 const format_amount = (amount) => {
     const num = new Intl.NumberFormat("en-US", {
@@ -27,7 +29,7 @@ onMounted(() => { });
 </script>
 
 <template>
-    <div v-if="account">
+    <div>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 py-10 gap-5">
             <div class="bg-slate-950 shadow-md shadow-violet-300 h-36 rounded-xl">
                 <div class="flex h-full items-center justify-between mx-5">
@@ -131,14 +133,14 @@ onMounted(() => { });
 
                             <td class="px-4">{{ tx.start_date }}</td>
 
-                            <td class="px-4 bg-yellow-600/50 text-yellow-400" v-if="tx.progress == 'active'">
+                            <td class="px-4 bg-yellow-600/50 text-yellow-400" v-if="tx.progress == 'pending'">
+                                pending
+                            </td>
+                            <td class="px-4 bg-green-600/50 text-green-400" v-if="tx.progress == 'active'">
                                 active
                             </td>
-                            <td class="px-4 bg-green-600/50 text-green-400" v-if="tx.progress == 'completed'">
-                                completed
-                            </td>
-                            <td class="px-4 bg-red-600/50 text-red-400" v-if="tx.progress == 'pending'">
-                                pending
+                            <td class="px-4 bg-red-600/50 text-red-400" v-if="tx.progress == 'completed'">
+                               completed
                             </td>
                         </tr>
                     </tbody>

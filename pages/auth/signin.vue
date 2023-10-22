@@ -65,16 +65,18 @@ const Login = async (e) => {
                       <label for="remember" class="">Remember me</label>
                     </div>
                   </div>
-                  <a href="#" class="text-sm font-medium hover:text-primary-hover">Forgot password?</a>
+                  <a href="#" class="text-sm font-medium text-primary-hover hover:text-violet-300">Forgot password?</a>
                 </div>
 
                 <div class="mt-5 text-center">
-                  <btn type="submit" id="sbutton">Sign In</btn>
+                  <btn type="submit" id="sbutton" class=" group "> 
+                    <i class="fas fa-spinner !hidden group-disabled:!inline-block animate-spin "></i> Sign In
+                    </btn>
                 </div>
 
                 <p class="text-sm font-light">
                   Don’t have an account yet?
-                  <NuxtLink to="/auth/signup" class="font-medium text-primary-600 hover:text-primary-hover">
+                  <NuxtLink to="/auth/signup" class="font-medium text-primary-600 text-primary-hover hover:text-violet-300">
                     Sign up</NuxtLink>
                 </p>
               </form>

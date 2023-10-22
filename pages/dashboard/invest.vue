@@ -6,7 +6,7 @@ const userId = inject('userId')
 const url = inject('url')
 
 const invest = reactive({
-    userId: userId.value,
+    userId: userId,
     plan: "bronze",
     amount: null,
     channel: "BTC",
@@ -138,11 +138,12 @@ const initiate = async (e) => {
     e.target.disabled =true
    
     const {data: res, error: error} = await useFetch(`${url}transaction/`, {
-        method: 'post', watch: 'false', body: invest, key: new Date().getTime().toString()
+        method: 'post', watch: false, body: invest, key: new Date().getTime().toString()
     })
     if(res.value){
         if(res.value.staus == 'success'){
             e.target.innerHTML = 'Initiated'
+             invest.amount = ''
         }else{
             alert("could not initiate this transaction, Try again letter!!!")
             e.target.disabled =false

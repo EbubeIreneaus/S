@@ -1,20 +1,28 @@
 <script  setup>
 import Cookies from 'js-cookie'
-const userId = ref(null)
+const userId = Cookies.get('userId')
 provide('userId', userId)
-provide('url', 'http://127.0.0.1:8000/')
+const url = 'http://127.0.0.1:8000/'
+// const url = 'https://backend-springfield.vercel.app/'
+
+provide('url', url)
+
+const { data: account } = await useFetch(`${url}account/details/${userId}`);
+
+provide('account', account)
+
 const nav = ref([
     { title: "dashboard", link: "/dashboard/" },
     { title: "invest", link: "/dashboard/invest" },
     { title: "withdraw", link: "/dashboard/withdraw" },
-    { title: "account", link: "/dashboard/" },
+    { title: "account", link: "" },
     { title: "contact us", link: "/contact" },
     { title: "logout", link: "/auth/signout" },
 ])
 
 const checkUser = () => {
-    if (Cookies.get('userId')) {
-        userId.value = Cookies.get('userId')
+    if (userId) {
+
     } else {
         useRouter().push('/auth/signin')
     }
@@ -30,10 +38,13 @@ const toogleSidebar = () => {
     aside.classList.toggle('!opacity-100')
     //    aside.classList.toggle('w-0')
 }
+
+
+
 </script>
 
 <template>
-    <div
+    <div v-if="account"
         class="bg-slate-900  min-h-screen border border-transparent main w-full text-violet-300 font-serif selection:bg-primary-hover selection:text-violet-300 ">
         <header class="bg-slate-950 w-full h-16 fixed">
             <div class="flex items-center justify-between h-full pe-8">
@@ -53,7 +64,7 @@ const toogleSidebar = () => {
 
                 <div class="flex justify-end items-center  gap-3 ">
                     <img src="~/assets/img/db-user.png" alt="" class="h-10 w-10 rounded-full">
-                    <p class="capitalize font-semibold">Okigwe Ebube</p>
+                    <p class="capitalize font-semibold">{{ account.profile.user.username }}</p>
                 </div>
             </div>
         </header>

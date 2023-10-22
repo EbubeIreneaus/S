@@ -225,29 +225,29 @@ const formatPhone = () => {
     form.phone.slice(6);
 };
 
-const validate = () =>{
-    if(form.firstname == '' || form.lastname == ''){
-        alert('First name and Last name cannot be empty!!')
-        return false
-    }
-    if(form.username == '' ){
-        alert('username cannot be empty!!')
-        return false
-    }
-    if(form.email == '' ){
-        alert('Email cannot be empty!!')
-        return false
-    }
-    if(form.password != cpass.value ){
-        alert('password does not match!!')
-        return false
-    }
-    return true
+const validate = () => {
+  if (form.firstname == '' || form.lastname == '') {
+    alert('First name and Last name cannot be empty!!')
+    return false
+  }
+  if (form.username == '') {
+    alert('username cannot be empty!!')
+    return false
+  }
+  if (form.email == '') {
+    alert('Email cannot be empty!!')
+    return false
+  }
+  if (form.password != cpass.value) {
+    alert('password does not match!!')
+    return false
+  }
+  return true
 }
 const Register = async (e) => {
-    if(!validate()){
-        return false
-    }
+  if (!validate()) {
+    return false
+  }
   let submit_btn = document.getElementById("sbutton");
   submit_btn.disabled = true;
   const res = await useFetch(`${url}auth/`, {
@@ -283,165 +283,84 @@ const Register = async (e) => {
     <br />
     <div class="h-max py-2 sm:mt-28 w-full mt-[110px]">
       <section class="">
-        <div
-          class="flex items-center justify-center px-4 py-8 mx-auto sm:px-10 sm:py-0"
-        >
-          <div
-            class="w-full rounded-lg md:mt-0 sm:max-w-lg xl:p-0 px-4 py-8 shadow-lg shadow-violet-300"
-          >
+        <div class="flex items-center justify-center px-4 py-8 mx-auto sm:px-10 sm:py-0">
+          <div class="w-full rounded-lg md:mt-0 sm:max-w-lg xl:p-0 px-4 py-8 shadow-lg shadow-violet-300">
             <div class="space-y-4 md:space-y-6 sm:p-8">
-              <h1
-                class="text-xl font-bold leading-tight tracking-tight md:text-2xl"
-              >
+              <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl">
                 Create a new account
               </h1>
-              <form
-                class="space-y-4 md:space-y-6"
-               id="reg_form"
-               @submit.prevent="Register"
-              >
+              <form class="space-y-4 md:space-y-6" id="reg_form" @submit.prevent="Register">
                 <div class="flex flex-col md:flex-row gap-3">
                   <div class="w-full">
-                    <label for="firstname" class="mb-2 text-sm font-medium"
-                      >First Name</label
-                    >
-                    <input
-                      type="text"
-                      v-model="form.firstname"
-                      id="firstname"
+                    <label for="firstname" class="mb-2 text-sm font-medium">First Name</label>
+                    <input type="text" v-model="form.firstname" id="firstname"
                       class="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg appearance-none focus:ring-primary-600 focus:border-primary-600 w-full p-2.5"
-                      placeholder="first name"
-                      required
-                    />
+                      placeholder="first name" required />
                   </div>
                   <div class="w-full">
-                    <label for="lastname" class="mb-2 text-sm font-medium"
-                      >Last Name</label
-                    >
-                    <input
-                      type="text"
-                      v-model="form.lastname"
-                      id="lastname"
+                    <label for="lastname" class="mb-2 text-sm font-medium">Last Name</label>
+                    <input type="text" v-model="form.lastname" id="lastname"
                       class="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg appearance-none focus:ring-primary-600 focus:border-primary-600 w-full p-2.5"
-                      placeholder="last name"
-                      required
-                    />
+                      placeholder="last name" required />
                   </div>
                 </div>
                 <div>
                   <label for="email" class="block mb-2 text-sm font-medium">
-                    Username</label
-                  >
-                  <input
-                    type="text"
-                    v-model="form.username"
-                    id="username"
+                    Username</label>
+                  <input type="text" v-model="form.username" id="username"
                     class="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 w-full p-2.5"
-                    placeholder="username"
-                    required
-                  />
+                    placeholder="username" required />
                 </div>
                 <div>
                   <label for="email" class="block mb-2 text-sm font-medium">
-                    Email</label
-                  >
-                  <input
-                    type="email"
-                    v-model="form.email"
-                    id="email"
+                    Email</label>
+                  <input type="email" v-model="form.email" id="email"
                     class="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 w-full p-2.5"
-                    placeholder="Email"
-                    required
-                  />
+                    placeholder="Email" required />
                 </div>
                 <div>
-                  <label for="country" class="block mb-2 text-sm font-medium"
-                    >Country</label
-                  >
-                  <select
-                    @change="changeCountryCode"
-                    v-model="form.country"
-                    class="w-full p-2.5 rounded-lg appearance-none"
-                  >
-                    <option
-                      :value="x.country"
-                      v-for="(x, index) in countries"
-                      :key="index"
-                    >
+                  <label for="country" class="block mb-2 text-sm font-medium">Country</label>
+                  <select @change="changeCountryCode" v-model="form.country"
+                    class="w-full p-2.5 rounded-lg appearance-none">
+                    <option :value="x.country" v-for="(x, index) in countries" :key="index">
                       {{ x.country }}
                     </option>
                   </select>
                 </div>
                 <div>
-                  <label for="" class="block mb-2 text-sm font-medium"
-                    >Phone</label
-                  >
+                  <label for="" class="block mb-2 text-sm font-medium">Phone</label>
 
                   <div
-                    class="flex focus-within:ring-1 ring-black ring-offset-1 rounded-lg bg-gray-50 border-3 border-gray-300"
-                  >
-                    <input
-                      type="text"
-                      v-model="form.code"
-                      id=""
-                      readonly
-                      class="p-2.5 w-14 appearance-none outline-none rounded-s-lg"
-                    />
-                    <input
-                      type="text"
-                      v-model="form.phone"
-                      placeholder="000 000 0000"
-                      class="flex-grow outline-none rounded-e-lg"
-                      @change="formatPhone"
-                      required
-                    />
+                    class="flex focus-within:ring-1 ring-black ring-offset-1 rounded-lg bg-gray-50 border-3 border-gray-300">
+                    <input type="text" v-model="form.code" id="" readonly
+                      class="p-2.5 w-14 appearance-none outline-none rounded-s-lg" />
+                    <input type="text" v-model="form.phone" placeholder="000 000 0000"
+                      class="flex-grow outline-none rounded-e-lg" @change="formatPhone" required />
                   </div>
                 </div>
                 <div>
-                  <label for="password" class="block mb-2 text-sm font-medium"
-                    >Password</label
-                  >
-                  <input
-                    type="password"
-                    v-model="form.password"
-                    id="password"
-                    placeholder="••••••••"
+                  <label for="password" class="block mb-2 text-sm font-medium">Password</label>
+                  <input type="password" v-model="form.password" id="password" placeholder="••••••••"
                     class="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                    required
-                  />
+                    required />
                 </div>
                 <div>
-                  <label for="password" class="block mb-2 text-sm font-medium"
-                    >Password</label
-                  >
-                  <input
-                    type="password"
-                    v-model="cpass"
-                    id="password"
-                    placeholder="••••••••"
+                  <label for="password" class="block mb-2 text-sm font-medium">Password</label>
+                  <input type="password" v-model="cpass" id="password" placeholder="••••••••"
                     class="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                    required
-                  />
+                    required />
                 </div>
 
                 <div class="mt-5 text-center">
-                  <btn
-                    type="submit "
-                    :disabled="cpass !== form.password"
-                    id="sbutton"
-                 
-                    >Sign Up</btn
-                  >
+                  <btn type="submit" id="sbutton" class=" group "> 
+                    <i class="fas fa-spinner !hidden group-disabled:!inline-block animate-spin "></i> Sign Up
+                    </btn>
                 </div>
 
                 <p class="text-sm font-light">
                   Already have an account?
-                  <NuxtLink
-                    to="/auth/signin"
-                    class="font-medium text-primary-600 hover:text-primary-hover"
-                  >
-                    Sign in</NuxtLink
-                  >
+                  <NuxtLink to="/auth/signin" class="font-medium text-primary-600 text-primary-hover hover:text-violet-300">
+                    Sign in</NuxtLink>
                 </p>
               </form>
             </div>

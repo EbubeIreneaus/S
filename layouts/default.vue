@@ -1,5 +1,6 @@
 <script setup>
-provide('url', 'http://127.0.0.1:8000/')
+// provide('url', 'http://127.0.0.1:8000/')
+provide('url', 'https://backend-springfield.vercel.app/')
 const navLinks = reactive([
     { title: "home", link: "/" },
     { title: "about", link: "/about" },
@@ -24,7 +25,7 @@ onMounted(() => { });
                 <div class="logo flex items-center gap-2 bg-clip-text bg-gradient-to-r from-[#40c9ff] to-[#e81cff]">
                     <img src="~/assets/img/btc-logo.png" alt="" class="rounded-full w-10 h-10 ring-2" />
                     <h2 class="font-semibold italic text-xl text-transparent">
-                        Spring Field
+                        <NuxtLink to="/">Spring Field</NuxtLink>
                     </h2>
                 </div>
 
@@ -72,18 +73,15 @@ onMounted(() => { });
                         <div class="logo flex items-center gap-2 bg-clip-text bg-gradient-to-r from-[#40c9ff] to-[#e81cff]">
                             <img src="~/assets/img/btc-logo.png" alt="" class="rounded-full w-10 h-10 ring-2" />
                             <h2 class="font-semibold italic text-xl text-transparent">
-                                Spring Field
+                                <NuxtLink to="/">Spring Field</NuxtLink>
                             </h2>
                         </div>
                     </a>
                     <div class="mt-6 lg:max-w-sm">
                         <p class="text-sm">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium doloremque laudantium, totam rem aperiam.
-                        </p>
-                        <p class="mt-4 text-sm">
-                            Eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                            beatae vitae dicta sunt explicabo.
+                            Created in 2012, SpringField Investestment came into the investment market with the primary objective of
+                             ensuring that we give as many people who are interested in investing in the financial
+                              market, a genuine encounter with the investment market.
                         </p>
                     </div>
                 </div>
@@ -91,12 +89,12 @@ onMounted(() => { });
                     <p class="text-base font-bold tracking-wide">Contacts</p>
                     <div class="flex hover:text-primary-hover hover:scale-105">
                         <p class="mr-1">Phone:</p>
-                        <a href="tel:850-123-5021" aria-label="Our phone" title="Our phone"
-                            class="transition-colors duration-500 text-deep-purple-accent-400">850-123-5021</a>
+                        <a href="+1 401 594 9299" aria-label="Our phone" title="Our phone"
+                            class="transition-colors duration-500 text-deep-purple-accent-400">+1 401 594 9299</a>
                     </div>
                     <div class="flex hover:text-primary-hover hover:scale-105">
                         <p class="mr-1">Email:</p>
-                        <a href="mailto:info@lorem.mail" aria-label="Our email" title="Our email"
+                        <a href="mailto:info@springfieldinvest.com" aria-label="Our email" title="Our email"
                             class="transition-colors duration-300 text-deep-purple-accent-400">info@springfield.com</a>
                     </div>
                     <div class="flex hover:text-primary-hover hover:scale-105">
@@ -111,19 +109,19 @@ onMounted(() => { });
                 <div>
                     <span class="text-base font-bold tracking-wide">Social</span>
                     <div class="flex items-center mt-1 space-x-3">
-                        <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-primary-hover">
+                        <a href="#" class="text-gray-500 transition-colors duration-300 hover:text-primary-hover">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-primary-hover">
+                        <a href="#" class="text-gray-500 transition-colors duration-300 hover:text-primary-hover">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-primary-hover">
+                        <a href="#" class="text-gray-500 transition-colors duration-300 hover:text-primary-hover">
                             <i class="fab fa-twitter"></i>
                         </a>
                     </div>
                     <p class="mt-4 text-sm text-gray-500">
-                        Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken
-                        spare ribs salami.
+                        <!-- Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken
+                        spare ribs salami. -->
                     </p>
                 </div>
             </div>
