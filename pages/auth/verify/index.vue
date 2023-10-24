@@ -12,7 +12,6 @@ const send_verification_email = async () => {
     });
     if (res.data.status == "success") {
         Cookies.set("userId", res.data.userId);
-        Cookies.set("vkey", res.data.key, {expires: 1/48});
     }else{
         useRouter().push("/auth/signin");
     }

@@ -13,7 +13,12 @@ const getAccount = async () => {
 
 
     const res = await Axios.get(`${url}/account/details/${userId}`)
-    account.value = res.data
+    if (res.data.profile.verified) {
+        account.value = res.data
+    }
+    else {
+        useRouter().push('/auth/verify/')
+    }
 
 }
 
@@ -51,7 +56,7 @@ const toogleSidebar = () => {
 }
 
 onMounted(() => {
-  
+
 })
 
 </script>
