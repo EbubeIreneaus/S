@@ -1,4 +1,6 @@
 <script setup>
+import Cookies from "js-cookie";
+
 const url = inject("url");
 const cpass = ref(null);
 const countries = ref([
@@ -259,7 +261,9 @@ const Register = async (e) => {
 
   if (res.data.value.status == "success") {
     document.getElementById('reg_form').reset();
-    useRouter().push('/auth/signin')
+    Cookies.set('userId', res.data.value.userId)
+    Cookies.set('vkey', res.data.value.key, { expires: 1 / 48 })
+    useRouter().push('/auth/verify')
   } else {
     switch (res.data.value.code) {
       case "username_already_exist":
@@ -352,14 +356,15 @@ const Register = async (e) => {
                 </div>
 
                 <div class="mt-5 text-center">
-                  <btn type="submit" id="sbutton" class=" group "> 
+                  <btn type="submit" id="sbutton" class=" group ">
                     <i class="fas fa-spinner !hidden group-disabled:!inline-block animate-spin "></i> Sign Up
-                    </btn>
+                  </btn>
                 </div>
 
                 <p class="text-sm font-light">
                   Already have an account?
-                  <NuxtLink to="/auth/signin" class="font-medium text-primary-600 text-primary-hover hover:text-violet-300">
+                  <NuxtLink to="/auth/signin"
+                    class="font-medium text-primary-600 text-primary-hover hover:text-violet-300">
                     Sign in</NuxtLink>
                 </p>
               </form>

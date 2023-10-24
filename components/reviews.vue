@@ -57,7 +57,7 @@ onMounted(() => {
 <template>
  <div class=" py-10 px-9  ">
   <h2 id="carousel-heading" class="text-3xl relative py-5 before:absolute before:border before:w-32 before:bottom-0 before:border-primary-hover text-center">
-       Cient Reviews</h2>
+       Client Reviews</h2>
        <br>
     <section class="splide container mx-auto" aria-label="carousel-heading">
   

@@ -23,12 +23,19 @@ const Login = async (e) => {
     } else {
       Cookies.set('userId', res.data.value.userId)
     }
-    useRouter().push("/dashboard/");
-  } else {
+    useRouter().push("/user/");
+  } else if(res.data.value.status == "unverified"){
+    if (remember_me.value) {
+      Cookies.set('userId', res.data.value.userId, { expires: 30 })
+    } else {
+      Cookies.set('userId', res.data.value.userId)
+    }
+    useRouter().push('/auth/verify/')
+  }else{
     alert("User Not Found!!!");
     submit_btn.disabled = false;
   }
-};
+}
 </script>
 
 <template>
@@ -68,7 +75,7 @@ const Login = async (e) => {
                   <a href="#" class="text-sm font-medium text-primary-hover hover:text-violet-300">Forgot password?</a>
                 </div>
 
-                <div class="mt-5 text-center">
+                <div class="my-5 text-center">
                   <btn type="submit" id="sbutton" class=" group "> 
                     <i class="fas fa-spinner !hidden group-disabled:!inline-block animate-spin "></i> Sign In
                     </btn>

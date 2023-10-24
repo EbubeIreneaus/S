@@ -1,20 +1,30 @@
-<script  setup>
+<script setup>
 import Cookies from 'js-cookie'
+import Axios from 'axios'
 const userId = Cookies.get('userId')
+const account = ref(null)
 provide('userId', userId)
 // const url = 'http://127.0.0.1:8000/'
 const url = 'https://backend-springfield.vercel.app/'
 
 provide('url', url)
 
-const { data: account } = await useFetch(`${url}account/details/${userId}`);
+const getAccount = async () => {
+
+
+    const res = await Axios.get(`${url}/account/details/${userId}`)
+    account.value = res.data
+
+}
 
 provide('account', account)
 
+let sideLinks
+
 const nav = ref([
-    { title: "dashboard", link: "/dashboard/" },
-    { title: "invest", link: "/dashboard/invest" },
-    { title: "withdraw", link: "/dashboard/withdraw" },
+    { title: "dashboard", link: "/user/" },
+    { title: "invest", link: "/user/invest" },
+    { title: "withdraw", link: "/user/withdraw" },
     { title: "account", link: "" },
     { title: "contact us", link: "/contact" },
     { title: "logout", link: "/auth/signout" },
@@ -29,6 +39,7 @@ const checkUser = () => {
 }
 onBeforeMount(() => {
     checkUser()
+    getAccount()
 })
 
 const toogleSidebar = () => {
@@ -39,14 +50,16 @@ const toogleSidebar = () => {
     //    aside.classList.toggle('w-0')
 }
 
-
+onMounted(() => {
+  
+})
 
 </script>
 
 <template>
     <div v-if="account"
         class="bg-slate-900  min-h-screen border border-transparent main w-full text-violet-300 font-serif selection:bg-primary-hover selection:text-violet-300 ">
-        <header class="bg-slate-950 w-full h-16 fixed">
+        <header class="bg-slate-950 w-full h-16 fixed z-50">
             <div class="flex items-center justify-between h-full pe-8">
 
                 <div
@@ -70,19 +83,20 @@ const toogleSidebar = () => {
         </header>
 
         <div class="mt-16 ">
-            <aside class="h-[calc(100vh-64px)] max-w-sm w-0 opacity-0 md:w-[250px] md:opacity-100 z-40 bg-slate-950 
+            <aside class="h-[calc(100vh-64px)] max-w-sm w-0 opacity-0 md:!w-[250px] md:opacity-100 z-40 bg-slate-950 
             flex flex-col gap-y-10 fixed overflow-hidden transition-all duration-500">
                 <div class="flex  w-full gap-3 mt-5 mx-3">
                     <img src="~/assets/img/db-user.png" alt="" class="h-10 w-10 rounded-full">
                     <div>
-                        <p class="capitalize font-semibold">{{account.profile.user.first_name}} {{ account.profile.user.last_name }}</p>
-                        <small>{{account.profile.user.username}}</small>
+                        <p class="capitalize font-semibold">{{ account.profile.user.first_name }} {{
+                            account.profile.user.last_name }}</p>
+                        <small>{{ account.profile.user.username }}</small>
                     </div>
                 </div>
                 <div>
                     <ul role="list" class="mt-5 list-outside pe-4">
-                        <nuxt-link :to="x.link" v-for="x, index in nav" :key="index">
-                            <li class="capitalize  py-3 my-2 px-2 rounded-e-full
+                        <nuxt-link :to="x.link" v-for="x, index in nav" :key="index" @click="toogleSidebar">
+                            <li class="capitalize side-links  py-3 my-2 px-2 rounded-e-full
                             hover:bg-slate-900">{{ x.title }}</li>
                         </nuxt-link>
                     </ul>

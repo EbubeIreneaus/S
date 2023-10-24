@@ -25,13 +25,13 @@
                             <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.1s"
                                 style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                                 <p class="mb-2">Our office:</p>
-                                <h4 class="text-2xl my-5">123 Street, New York, USA</h4>
+                                <h4 class="text-2xl my-5">312 Lovely Street, NY</h4>
                                 <hr class="w-50"> <br>
                                 <p >Call us:</p>
-                                <h4 class="text-2xl my-5">+012 345 6789</h4>
+                                <h4 class="text-2xl my-5">+1 401 594 9299</h4>
                                 <hr class="w-50"> <br>
                                 <p>Mail us:</p>
-                                <h4 class="text-2xl my-5">info@springfield.com</h4>
+                                <h4 class="text-2xl my-5">service@springfieldinvest.com</h4>
                                 <hr>
                              
                             </div>
@@ -98,7 +98,7 @@
             </div>
         </div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001584.5787337353!2d-78.41083034159804!3d42.71991781708411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sng!4v1697368287932!5m2!1sen!2sng" 
-       class="w-full h-[400px]" style="border:0;" allowfullscreen="" loading="lazy" 
+       class="w-full h-[400px]" style="border:0;" allowfullscreen="true" loading="lazy" 
         referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </div></template>
