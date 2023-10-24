@@ -12,7 +12,7 @@ provide('url', url)
 const getAccount = async () => {
 
 
-    const res = await Axios.get(`${url}/account/details/${userId}`)
+    const res = await Axios.get(`${url}account/details/${userId}`)
     if (res.data.profile.verified) {
         account.value = res.data
     }

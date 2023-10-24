@@ -48,7 +48,7 @@ onMounted(() => {
 
 <template>
     <div class="border border-transparent">
-        <div class="w-full h-[calc(100vh-100px)] mt-[40px] relative grid content-center">
+        <div class="w-full h-[calc(100vh-100px)] mt-[30px] relative grid content-center">
             <div class="max-w-sm !w-full mx-auto text-center py-5 px-2 shadow-md shadow-violet-300">
                 <h2 class="text-2xl head-text">Verifying your account</h2>
                 <p v-if="kb == true" class="mt-1 text-primary-hover">
