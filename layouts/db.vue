@@ -31,7 +31,7 @@ const nav = ref([
     { title: "invest", link: "/user/invest" },
     { title: "withdraw", link: "/user/withdraw" },
     { title: "account", link: "" },
-    { title: "contact us", link: "/contact" },
+    { title: "contact us", link: "/user/contact" },
     { title: "logout", link: "/auth/signout" },
 ])
 

@@ -1,4 +1,33 @@
-<script lang="ts" setup>
+<script setup>
+import Axios from 'axios'
+const url = inject('url')
+const form = reactive({
+   first_name:"",
+   last_name: '',
+   email: '',
+   subject: 'Just Sent You a message',
+   message: ""
+});
+const validate = () =>{
+    if (form.first_name == '' || form.last_name == '' || form.email == '' || form.message == '') {
+        alert('All form field are required. fill them out!!!!')
+        return false
+    }
+    return true
+}
+const send_feedback = async(e) => {
+    if (!validate()){
+        return false
+    }
+    document.getElementById('sbtn').disabled = true
+    const res = await Axios.post(`${url}contact/`, form);
+    if (res.data) {
+       alert('Message sent, we will get back to you as quick as possible!!')
+        e.target.reset()
+        document.getElementById('sbtn').disabled = false
+   
+    }
+}
 </script>
 
 <template>
@@ -47,25 +76,25 @@
 
                     <!-- Form Section -->
                     <div class="w-full h-full  sm:px-4">
-                        <form class="w-full max-w-lg">
+                        <form class="w-full max-w-lg" @submit.prevent="send_feedback($event        )">
                             <div class="flex flex-wrap -mx-3 mb-6">
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-xs font-bold mb-2"
                                         for="grid-first-name">
                                         First Name
                                     </label>
-                                    <input
+                                    <input required
                                         class="appearance-none block w-full bg-gray-200  border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                                        id="grid-first-name" type="text" placeholder="First Name">
+                                       v-model="form.first_name" id="grid-first-name" type="text" placeholder="First Name">
                                 </div>
                                 <div class="w-full md:w-1/2 px-3">
                                     <label class="block uppercase tracking-wide  text-xs font-bold mb-2"
                                         for="grid-last-name">
-                                        Last Name
+                                          Last Name
                                     </label>
-                                    <input
+                                    <input required
                                         class="appearance-none block w-full bg-gray-200  border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-                                        id="grid-last-name" type="text" placeholder="Last Name">
+                                       v-model="form.last_name"   id="grid-last-name" type="text" placeholder="Last Name">
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-6">
@@ -73,9 +102,9 @@
                                     <label class="block uppercase tracking-wide text-xs font-bold mb-2" for="grid-email">
                                         Email
                                     </label>
-                                    <input
+                                    <input required
                                         class="appearance-none block w-full bg-gray-200 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                                        id="grid-email" type="email" placeholder="example@example.com">
+                                        v-model="form.email"  id="grid-email" type="email" placeholder="example@example.com">
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-6">
@@ -83,14 +112,16 @@
                                     <label class="block uppercase tracking-wide  text-xs font-bold mb-2" for="grid-message">
                                         Message
                                     </label>
-                                    <textarea
+                                    <textarea required
                                         class="appearance-none block w-full bg-gray-200  border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                                        id="grid-message" placeholder="Enter your message"></textarea>
+                                     v-model="form.message"   id="grid-message" placeholder="Enter your message"></textarea>
                                 </div>
                         </div>
                         <div class="md:flex md:items-center">
                             <div class="md:w-1/3 px-5 mt-5">
-                                <button_>send</button_>
+                                <btn type="submit" class="mt-2 w-full group mb-3" id="sbtn"> 
+                                <i class="fas fa-spinner animate-spin !hidden group-disabled:!inline-block"></i> send
+                                 </btn>
                             </div>
                         </div>
                     </form>
