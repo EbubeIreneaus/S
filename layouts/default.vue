@@ -1,6 +1,6 @@
 <script setup>
-// provide('url', 'http://127.0.0.1:8000/')
-provide('url', 'https://backend-springfield.vercel.app/')
+provide('url', 'http://127.0.0.1:8000/')
+// provide('url', 'https://backend-springfield.vercel.app/')
 const navLinks = reactive([
     { title: "home", link: "/" },
     { title: "about", link: "/about" },
