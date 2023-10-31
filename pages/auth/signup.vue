@@ -235,6 +235,8 @@ const validate = () => {
   if (form.username == '') {
     alert('username cannot be empty!!')
     return false
+  }else{
+    form.username = form.username.trim()
   }
   if (form.email == '') {
     alert('Email cannot be empty!!')

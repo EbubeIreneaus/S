@@ -7,6 +7,7 @@ const form = reactive({
   password: "",
 });
 const Login = async (e) => {
+  form.username = form.username.trim()
   let submit_btn = document.getElementById("sbutton");
   submit_btn.disabled = true;
   const res = await useFetch(`${url}auth/`, {
@@ -72,7 +73,7 @@ const Login = async (e) => {
                       <label for="remember" class="">Remember me</label>
                     </div>
                   </div>
-                  <a href="#" class="text-sm font-medium text-primary-hover hover:text-violet-300">Forgot password?</a>
+                  <NuxtLink to="/auth/fgpass" class="text-sm font-medium text-primary-hover hover:text-violet-300">Forgot password?</NuxtLink>
                 </div>
 
                 <div class="my-5 text-center">

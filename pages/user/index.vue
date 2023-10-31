@@ -106,7 +106,7 @@ onMounted(() => { });
                             <th class="py-5 px-4">channel</th>
                             <th class="py-5 px-4">amount</th>
                             <th class="py-5 px-4">status</th>
-                            <th class="py-5 px-4">date</th>
+                            <th class="py-5 px-4">plan</th>
                             <th class="py-5 px-4">progress</th>
                         </tr>
                     </thead>
@@ -131,7 +131,7 @@ onMounted(() => { });
                                 reject
                             </td>
 
-                            <td class="px-4">{{ tx.start_date }}</td>
+                            <td class="px-4">{{ tx.plan??'****'}}</td>
 
                             <td class="px-4 bg-yellow-600/50 text-yellow-400" v-if="tx.progress == 'pending'">
                                 pending
