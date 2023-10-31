@@ -17,6 +17,7 @@ const send_psreset_email = async (e) =>{
         }, 40000)
     }else{
         alert('No user with this username on our record!!!')
+        e.target.disabled = false
     }
 }
 </script>
