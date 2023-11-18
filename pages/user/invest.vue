@@ -4,6 +4,7 @@ definePageMeta({
 });
 const userId = inject('userId')
 const url = inject('url')
+const account = inject("account")
 
 const invest = reactive({
     userId: userId,
@@ -112,9 +113,12 @@ const total_return = computed(() => {
     }
 });
 const wallet_address = computed(() => {
-    return invest.channel == "BTC"
-        ? "18pDM9tV7ngtcXAkey1XWkFasmFAPSxig2"
-        : "TNfFvxM3j8c5eQfZwUdyNBCi41tqRZGP62";
+    if(invest.channel == "BTC"){
+        return  "18pDM9tV7ngtcXAkey1XWkFasmFAPSxig2"
+    }else if(invest.channel == "USDT"){
+        return "TNfFvxM3j8c5eQfZwUdyNBCi41tqRZGP62"
+    }
+    return ""
 });
 
 const copyAddress = (e) => {
@@ -134,7 +138,22 @@ const copyAddress = (e) => {
     });
 };
 
+const confirm_initiate = () =>{
+    if (invest.amount < 50) {
+        alert("You can not invest any amount less than $50.00")
+        return false
+    }
+    if (invest.channel == 'balance' && account.value.balance < invest.amount) {
+        alert("Your Account balance is to low to complete this transaction!!")
+        return false
+    }
+    return true
+}
+
 const initiate = async (e) => {
+    if(!confirm_initiate()){
+        return false
+    }
     e.target.disabled =true
    
     const {data: res, error: error} = await useFetch(`${url}transaction/`, {
@@ -144,6 +163,8 @@ const initiate = async (e) => {
     if(res.value){
         if(res.value.status == 'success'){
             e.target.innerHTML = 'Initiated'
+            alert('Investment Initiated successfully!!')
+            useRouter().push('/user/')
              invest.amount = ''
         }else{
             alert("could not initiate this transaction, Try again letter!!!")
@@ -279,6 +300,7 @@ const initiate = async (e) => {
                             class="appearance-none w-full py-1 bg-slate-700 my-2 px-3 font-mono border-0 outline-none">
                             <option value="BTC">BTC</option>
                             <option value="USDT">USDT</option>
+                            <option value="balance">Account balance</option>
                         </select>
                     </div>
                     <div>
@@ -303,12 +325,14 @@ const initiate = async (e) => {
                         </h3>
                     </div>
                     <!-- alert adress copied -->
-
+                    <div :class="{'hidden': invest.channel == 'balance'}">
+                 
                     <label for="">Copy and make payment to the address below!</label>
                     <input type="text" name="" readonly id="walletInput" :value="wallet_address"
                         @click="copyAddress($event)"
                         class="appearance-none w-full py-1 bg-slate-700 my-2 px-3 font-mono border-0 outline-none" />
-
+                               
+                    </div>
                     <button type="button" class="ring w-full py-2 mt-3 hover:ring-primary-hover relative group
                     disabled:cursor-not-allowed disabled:ring-0 disabled:border"
                         @click="initiate($event)">
