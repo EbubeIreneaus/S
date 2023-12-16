@@ -44,7 +44,7 @@ const send_feedback = async(e) => {
                                         <div class="contact_info_image"><img src="https://img.icons8.com/office/24/000000/iphone.png" alt=""></div>
                                         <div class="contact_info_content">
                                             <div class="contact_info_title">Phone</div>
-                                            <div class="contact_info_text">+1 401 594 9299</div>
+                                            <div class="contact_info_text">+1 201 574 9800</div>
                                         </div>
                                     </div>
 
@@ -53,7 +53,7 @@ const send_feedback = async(e) => {
                                         <div class="contact_info_image"><img src="https://img.icons8.com/ultraviolet/24/000000/filled-message.png" alt=""></div>
                                         <div class="contact_info_content">
                                             <div class="contact_info_title">Email</div>
-                                            <div class="contact_info_text ">service@springfieldinvest.com</div>
+                                            <div class="contact_info_text ">springfieldinvest.com</div>
                                         </div>
                                     </div>
 
@@ -62,7 +62,7 @@ const send_feedback = async(e) => {
                                         <div class="contact_info_image"><img src="https://img.icons8.com/ultraviolet/24/000000/map-marker.png" alt=""></div>
                                         <div class="contact_info_content">
                                             <div class="contact_info_title">Address</div>
-                                            <div class="contact_info_text">service@springfieldinvest.com</div>
+                                            <div class="contact_info_text">312 Huntington Street, NY</div>
                                         </div>
                                     </div>
 

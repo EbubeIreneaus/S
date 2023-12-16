@@ -54,13 +54,13 @@ const send_feedback = async(e) => {
                             <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.1s"
                                 style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                                 <p class="mb-2">Our office:</p>
-                                <h4 class="text-2xl my-5">312 Lovely Street, NY</h4>
+                                <h4 class="text-2xl my-5">312 Huntington Street, NY</h4>
                                 <hr class="w-50"> <br>
                                 <p >Call us:</p>
-                                <h4 class="text-2xl my-5">+1 401 594 9299</h4>
+                                <h4 class="text-2xl my-5">+1 201 574 9800</h4>
                                 <hr class="w-50"> <br>
                                 <p>Mail us:</p>
-                                <h4 class="text-2xl my-5">service@springfieldinvest.com</h4>
+                                <h4 class="text-2xl my-5">springfieldinvest@gmail.com</h4>
                                 <hr>
                              
                             </div>
