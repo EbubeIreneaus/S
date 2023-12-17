@@ -95,12 +95,12 @@ onMounted(() => { });
                         <div class="flex hover:text-primary-hover hover:scale-105">
                             <p class="mr-1">Phone:</p>
                             <a href="+1 401 594 9299" aria-label="Our phone" title="Our phone"
-                                class="transition-colors duration-500 text-deep-purple-accent-400">+1 401 594 9299</a>
+                                class="transition-colors duration-500 text-deep-purple-accent-400">1 201 574 9800</a>
                         </div>
                         <div class="flex hover:text-primary-hover hover:scale-105">
                             <p class="mr-1">Email:</p>
                             <a href="mailto:service@springfieldinvest.com" aria-label="Our email" title="Our email"
-                                class="transition-colors duration-300 text-deep-purple-accent-400">service@springfield.com</a>
+                                class="transition-colors duration-300 text-deep-purple-accent-400">springfieldinvesment.com</a>
                         </div>
                         <div class="flex hover:text-primary-hover hover:scale-105">
                             <p class="mr-1">Address:</p>

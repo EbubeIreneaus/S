@@ -53,7 +53,7 @@ const send_feedback = async(e) => {
                                         <div class="contact_info_image"><img src="https://img.icons8.com/ultraviolet/24/000000/filled-message.png" alt=""></div>
                                         <div class="contact_info_content">
                                             <div class="contact_info_title">Email</div>
-                                            <div class="contact_info_text ">springfieldinvest.com</div>
+                                            <div class="contact_info_text ">springfieldinvesment@gmail.com</div>
                                         </div>
                                     </div>
 
