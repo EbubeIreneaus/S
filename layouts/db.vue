@@ -11,7 +11,7 @@ provide('url', url)
 
     const {data:res} = await useFetch(`${url}account/details/${userId}`, {watch: false})
    
-     account.value = res.data
+     account.value = res.value
 
 
 provide('account', account)
