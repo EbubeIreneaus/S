@@ -9,18 +9,10 @@ const url = 'https://backend-springfield.vercel.app/'
 
 provide('url', url)
 
-const getAccount = async () => {
+    const {data:res} = await useFetch(`${url}account/details/${userId}`, {watch: false})
+   
+     account.value = res.data
 
-
-    const res = await Axios.get(`${url}account/details/${userId}`)
-    if (res.data.profile.verified) {
-        account.value = res.data
-    }
-    else {
-        useRouter().push('/auth/verify/')
-    }
-
-}
 
 provide('account', account)
 
