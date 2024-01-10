@@ -264,8 +264,8 @@ const Register = async (e) => {
   if (res.data.value.status == "success") {
     document.getElementById('reg_form').reset();
     Cookies.set('userId', res.data.value.userId)
-    Cookies.set('vkey', res.data.value.key, { expires: 1 / 48 })
-    useRouter().push('/auth/verify')
+    // Cookies.set('vkey', res.data.value.key, { expires: 1 / 48 })
+    useRouter().push('/user/')
   } else {
     switch (res.data.value.code) {
       case "username_already_exist":
