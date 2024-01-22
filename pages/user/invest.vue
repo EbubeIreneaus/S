@@ -114,9 +114,9 @@ const total_return = computed(() => {
 });
 const wallet_address = computed(() => {
     if(invest.channel == "BTC"){
-        return  "18pDM9tV7ngtcXAkey1XWkFasmFAPSxig2"
+        return  "1JwgsfZ2FPpmH9HVta68BwFU55kne8XH2v"
     }else if(invest.channel == "USDT"){
-        return "TNfFvxM3j8c5eQfZwUdyNBCi41tqRZGP62"
+        return "TGKEfpfy7Lsv9gxPXRpQ2cTxAJnB6kCgZd"
     }
     return ""
 });
