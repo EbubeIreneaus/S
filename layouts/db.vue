@@ -92,6 +92,8 @@ onMounted(() => {
   widgetScript3.async = true;
   widgetScript3.type = "text/javascript";
   widgetScript3.innerHTML = JSON.stringify({
+    "width": "100%",
+    "height": "500",
     autosize: true,
     symbol: "NASDAQ:AAPL",
     interval: "D",
@@ -191,14 +193,13 @@ onMounted(() => {
           <div class="tradingview-widget-copyright"></div>
         </div>
         <slot></slot>
-        
         <div
           class="tradingview-widget-container widget3 mt-7"
-          style="height: 500px; width: 100%"
+         
         >
           <div
             class="tradingview-widget-container__widget"
-            style="height: calc(100% - 32px); width: 100%"
+            
           ></div>
           <div class="tradingview-widget-copyright">
           </div>
