@@ -2,8 +2,7 @@
 .popup {
   visibility: hidden;
   position: fixed;
-  top: 45%;
-  font-size: 20px;
+  top: 100px;
   right: 20px;
   padding: 15px;
   background-color: whitesmoke;
