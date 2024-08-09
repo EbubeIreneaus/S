@@ -4,7 +4,7 @@
   position: fixed;
   top: 100px;
   right: 20px;
-  padding: 15px;
+  padding: 10px;
   background-color: whitesmoke;
   color: black;
   border-radius: 5px;
