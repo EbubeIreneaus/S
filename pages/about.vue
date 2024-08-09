@@ -40,10 +40,12 @@
             Who We Are
           </h2>
           <p>
+            <img src="~/assets/img/cert.jpeg" class="w-[250px] float-right"/>
             SpringField was founded by a team of experienced financial experts and tech enthusiasts who 
             recognized the immense potential of cryptocurrencies in shaping the future of global finance. With 
             our in-depth knowledge of blockchain technology and investment strategies, we aim to empower individuals 
             and businesses to make informed decisions in the ever-evolving landscape of digital assets.
+           
           </p>
           <h2 class="text-2xl my-5">
             Our Mission
