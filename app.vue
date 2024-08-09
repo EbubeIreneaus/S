@@ -121,6 +121,6 @@ function showPopup() {
 
 onMounted(() => {
   // Show the popup every 10 seconds
-  setInterval(showPopup, 10000);
+  setInterval(showPopup, 15000);
 });
 </script>
